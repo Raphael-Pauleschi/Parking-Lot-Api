@@ -2,6 +2,7 @@ package com.parkinglot.controller.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Builder;
@@ -21,7 +22,9 @@ public class ParkingDTO {
 	private String model;
 	private String color;
 	private String state;
+	@JsonFormat(pattern = "MM/dd/yyyy HH:mm")
 	private LocalDateTime entryData;
+	@JsonFormat(pattern = "MM/dd/yyyy HH:mm")
 	private LocalDateTime exitDate;
 	private Double bill;
 /*

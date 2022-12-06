@@ -1,5 +1,6 @@
 package com.parkinglot.service;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,13 @@ public class ParkingService {
 
 	private static String getUUID() {
 		return UUID.randomUUID().toString().replace("-","");
+	}
+
+	public Parking create(Parking parkingCreate) {
+		parkingCreate.setId(getUUID());
+		parkingCreate.setEntryData(LocalDateTime.now());
+		parkingMap.put(parkingCreate.getId(), parkingCreate);
+		return parkingCreate;
 	}
 
 }

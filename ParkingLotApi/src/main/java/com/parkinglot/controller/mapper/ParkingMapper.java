@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.parkinglot.config.LombokBuilderNameTransformer;
 import com.parkinglot.config.LombokBuilderNamingConvention;
+import com.parkinglot.controller.dto.ParkingCreateDTO;
 import com.parkinglot.controller.dto.ParkingDTO;
 import com.parkinglot.model.Parking;
 
@@ -24,13 +25,21 @@ public class ParkingMapper {
         .setDestinationNameTransformer(LombokBuilderNameTransformer.INSTANCE);
 	}
 	
-	public ParkingDTO parkingDTO(Parking parking) {
+	public ParkingDTO toParkingDTO(Parking parking) {
 		return 	MODEL_MAPPER.map(parking, ParkingDTO.ParkingDTOBuilder.class).build();
 	}
 	
 	
 	public List<ParkingDTO> toParkingDTOList(List<Parking> parkingList) {
-		return parkingList.stream().map(this::parkingDTO).collect(Collectors.toList());
+		return parkingList.stream().map(this::toParkingDTO).collect(Collectors.toList());
+	}
+
+	public Parking toParking(ParkingDTO dto) {
+		return 	MODEL_MAPPER.map(dto, Parking.ParkingBuilder.class).build();
+	}
+	
+	public Parking toParkingCreate(ParkingCreateDTO dto) {
+		return 	MODEL_MAPPER.map(dto, Parking.ParkingBuilder.class).build();
 	}
 
 }
