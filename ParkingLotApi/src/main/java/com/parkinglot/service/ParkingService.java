@@ -16,11 +16,11 @@ public class ParkingService {
 	
 	static {
 		var id  = getUUID();
-		Parking parking = new Parking(id,"DMS-111","SC","Celta","black");
-		/*Parking parking = Parking.builder()
+		//Parking parking = new Parking(id,"DMS-111","SC","Celta","black");
+		Parking parking = Parking.builder()
 				.id(id).state("SC").color("black")
 				.model("Celta").license("DMS-111")
-				.build();*/
+				.build();
 		parkingMap.put(id, parking);
 	}
 	
