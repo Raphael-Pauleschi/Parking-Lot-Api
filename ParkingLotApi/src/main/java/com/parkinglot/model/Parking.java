@@ -3,10 +3,11 @@ package com.parkinglot.model;
 import java.time.LocalDateTime;
 
 import lombok.Builder;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Builder
 public class Parking {
 	private String id;

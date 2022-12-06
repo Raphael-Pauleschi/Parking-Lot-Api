@@ -22,10 +22,20 @@ public class ParkingService {
 				.model("Celta").license("DMS-111")
 				.build();
 		parkingMap.put(id, parking);
+		id  = getUUID();
+		Parking parking2 = Parking.builder()
+				.id(id).state("SP").color("red")
+				.model("VW GOL").license("WAS-1234")
+				.build();
+		parkingMap.put(id, parking2);
 	}
 	
 	public List<Parking> findAll(){
 		return parkingMap.values().stream().collect(Collectors.toList());
+	}
+	
+	public Parking findById(String id) {
+		return parkingMap.get(id);
 	}
 
 	private static String getUUID() {
