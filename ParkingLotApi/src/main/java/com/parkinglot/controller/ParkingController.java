@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.parkinglot.controller.dto.ParkingCreateDTO;
 import com.parkinglot.controller.dto.ParkingDTO;
 import com.parkinglot.controller.mapper.ParkingMapper;
 import com.parkinglot.model.Parking;
@@ -46,10 +47,10 @@ public class ParkingController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ParkingDTO> create(@RequestBody ParkingDTO dto){
-		Parking parkingCreate = parkingMapper.toParking(dto);
+	public ResponseEntity<ParkingDTO> create(@RequestBody ParkingCreateDTO dto){
+		Parking parkingCreate = parkingMapper.toParkingCreate(dto);
 		Parking parking = service.create(parkingCreate);
 		ParkingDTO result = parkingMapper.toParkingDTO(parking);
 		return ResponseEntity.status(HttpStatus.CREATED).body(result);		
 	}
-}
+} 
