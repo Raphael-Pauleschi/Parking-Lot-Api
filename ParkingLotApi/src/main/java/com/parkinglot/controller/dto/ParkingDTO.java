@@ -1,11 +1,12 @@
-package com.parkinglot.model;
+package com.parkinglot.controller.dto;
 
 import java.time.LocalDateTime;
 
 import lombok.Data;
 
 @Data
-public class Parking {
+public class ParkingDTO {
+	
 	private String id;
 	private String license;
 	private String model;
@@ -14,10 +15,10 @@ public class Parking {
 	private LocalDateTime entryData;
 	private LocalDateTime exitDate;
 	private Double bill;
-
-	public Parking() {}
+/*
+public ParkingDTO() {}
 	
-	public Parking(String id, String license, String state, String model, String color) {
+	public ParkingDTO(String id, String license, String state, String model, String color) {
 		super();
 		this.id = id;
 		this.license = license;
@@ -25,6 +26,5 @@ public class Parking {
 		this.model = model;
 		this.color = color;
 	}
-	
-	
+	*/
 }
