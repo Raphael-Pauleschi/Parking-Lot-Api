@@ -70,9 +70,22 @@ public class ParkingService {
 	}
 
 	public Parking exit(String id) {
-		// recuperar o estacionado e atualizar data de saída
+		//get the parking and update its exitDate
 		Parking parking = findById(id);
 		parking.setExitDate(LocalDateTime.now());
+		parking.setBill( 
+				/*() -> {
+			int difference = (int) ChronoUnit.HOURS.between(parking.getEntryDate(),parking.getExitDate());
+			if(difference <= 2)
+				return 10.00;
+			else if(difference <= 5)
+				return 20.00;
+			else 
+				return 50.00;
+			}*/
+					100000000d
+			 
+		);
 		parkingMap.replace(id, parking);
 		return parking;
 	}
