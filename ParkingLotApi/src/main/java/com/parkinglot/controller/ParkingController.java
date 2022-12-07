@@ -48,9 +48,9 @@ public class ParkingController {
 	@ApiOperation("Find by Id")
 	public ResponseEntity<ParkingDTO> findById(@PathVariable String id){
 		Parking parking = service.findById(id);
-		if(parking == null) {
+	/*	if(parking == null) {
 			return ResponseEntity.notFound().build();
-		}
+		}*/
 		ParkingDTO result = parkingMapper.toParkingDTO(parking);
 		return ResponseEntity.ok(result);
 	}
