@@ -17,8 +17,12 @@ import com.parkinglot.controller.mapper.ParkingMapper;
 import com.parkinglot.model.Parking;
 import com.parkinglot.service.ParkingService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/cars")
+@Api(tags = "Parking Controller")
 public class ParkingController {
 	
 	//Padrão recomendado na injeção de depências é por construtor
@@ -33,6 +37,7 @@ public class ParkingController {
 	
 
 	@GetMapping
+	@ApiOperation("Find all parkings")
 	public ResponseEntity<List<ParkingDTO>> findAll(){
 		List<Parking> parkingList = service.findAll();
 		List<ParkingDTO> result = parkingMapper.toParkingDTOList(parkingList);
@@ -40,13 +45,18 @@ public class ParkingController {
 	}
 	
 	@GetMapping("/{id}")
+	@ApiOperation("Find by Id")
 	public ResponseEntity<ParkingDTO> findById(@PathVariable String id){
 		Parking parking = service.findById(id);
+		if(parking == null) {
+			return ResponseEntity.notFound().build();
+		}
 		ParkingDTO result = parkingMapper.toParkingDTO(parking);
 		return ResponseEntity.ok(result);
 	}
 	
 	@PostMapping
+	@ApiOperation("Create parking")
 	public ResponseEntity<ParkingDTO> create(@RequestBody ParkingCreateDTO dto){
 		Parking parkingCreate = parkingMapper.toParkingCreate(dto);
 		Parking parking = service.create(parkingCreate);
