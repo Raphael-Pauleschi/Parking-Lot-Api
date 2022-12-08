@@ -21,7 +21,7 @@ public class ParkingService {
 		//Parking parking = new Parking(id,"DMS-111","SC","Celta","black");
 		Parking parking = Parking.builder()
 				.id(id).state("SC").color("black")
-				.model("Celta").license("DMS-111")
+				.model("Celta").license("DMS-1111")
 				.build();
 		parkingMap.put(id, parking);
 		id  = getUUID();
