@@ -13,12 +13,11 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /*
  * For some reason swagger doesn't work in my device
- * 
+ */
 @Component
 @EnableSwagger2
-*/
 public class SwaggerConfig {
-	/*@Bean
+	@Bean
 	public Docket getDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
@@ -36,5 +35,5 @@ public class SwaggerConfig {
 				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0/--")
 				.build();
 	}
-	*/
+	
 }
