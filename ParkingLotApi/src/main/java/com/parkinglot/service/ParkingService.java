@@ -16,6 +16,7 @@ import com.parkinglot.model.Parking;
 public class ParkingService {
 	private static Map<String, Parking> parkingMap = new HashMap();
 	
+	/* Data in memory for test
 	static {
 		var id  = getUUID();
 		//Parking parking = new Parking(id,"DMS-111","SC","Celta","black");
@@ -31,6 +32,8 @@ public class ParkingService {
 				.build();
 		parkingMap.put(id, parking2);
 	}
+	*/
+	
 	
 	public List<Parking> findAll(){
 		return parkingMap.values().stream().collect(Collectors.toList());
