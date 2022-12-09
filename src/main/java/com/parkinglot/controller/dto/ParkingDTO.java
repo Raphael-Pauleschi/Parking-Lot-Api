@@ -12,8 +12,6 @@ import lombok.Value;
 
 @Getter
 @Setter
-@Builder
-@Value
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ParkingDTO {
 	
@@ -27,7 +25,7 @@ public class ParkingDTO {
 	@JsonFormat(pattern = "MM/dd/yyyy HH:mm")
 	private LocalDateTime exitDate;
 	private Double bill;
-/*
+
 public ParkingDTO() {}
 	
 	public ParkingDTO(String id, String license, String state, String model, String color) {
@@ -38,5 +36,5 @@ public ParkingDTO() {}
 		this.model = model;
 		this.color = color;
 	}
-	*/
+	
 }

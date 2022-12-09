@@ -17,16 +17,16 @@ import com.parkinglot.model.Parking;
 public class ParkingMapper {
 	
 	public static final ModelMapper MODEL_MAPPER = new ModelMapper();
-	
+	/*
 	public ParkingMapper() {
 		MODEL_MAPPER.getConfiguration()
         .setMatchingStrategy(MatchingStrategies.STRICT)
         .setDestinationNamingConvention(LombokBuilderNamingConvention.INSTANCE)
         .setDestinationNameTransformer(LombokBuilderNameTransformer.INSTANCE);
-	}
+	}*/
 	
 	public ParkingDTO toParkingDTO(Parking parking) {
-		return 	MODEL_MAPPER.map(parking, ParkingDTO.ParkingDTOBuilder.class).build();
+		return 	MODEL_MAPPER.map(parking, ParkingDTO.class);
 	}
 	
 	
@@ -35,11 +35,11 @@ public class ParkingMapper {
 	}
 
 	public Parking toParking(ParkingDTO dto) {
-		return 	MODEL_MAPPER.map(dto, Parking.ParkingBuilder.class).build();
+		return 	MODEL_MAPPER.map(dto, Parking.class);
 	}
 	
 	public Parking toParkingCreate(ParkingCreateDTO dto) {
-		return 	MODEL_MAPPER.map(dto, Parking.ParkingBuilder.class).build();
+		return 	MODEL_MAPPER.map(dto, Parking.class);
 	}
 
 }

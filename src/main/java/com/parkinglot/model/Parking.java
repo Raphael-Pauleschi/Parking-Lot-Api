@@ -4,13 +4,11 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
 @Entity
 public class Parking {
 	@Id
@@ -22,7 +20,7 @@ public class Parking {
 	private LocalDateTime entryData;
 	private LocalDateTime exitDate;
 	private Double bill;
-/*
+
 	public Parking() {}
 	
 	public Parking(String id, String license, String state, String model, String color) {
@@ -33,6 +31,5 @@ public class Parking {
 		this.model = model;
 		this.color = color;
 	}
-	*/
 	
 }

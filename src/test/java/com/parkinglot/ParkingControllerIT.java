@@ -42,8 +42,7 @@ class ParkingControllerIT {
 
 	@Test
 	void whenCreateThenCheckIsCreated() {
-		var createDTO = ParkingCreateDTO.builder().color("yellow").model("uno")
-				.license("SLA-2341").state("ES").build();
+		var createDTO = new ParkingCreateDTO("yellow","uno","SLA-2341","ES");
 		
 		
 		RestAssured.given()
