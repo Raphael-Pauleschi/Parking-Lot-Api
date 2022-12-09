@@ -3,9 +3,10 @@ package com.parkinglot.service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.parkinglot.exception.ParkingNotFoundException;
 import com.parkinglot.model.Parking;
@@ -30,10 +31,11 @@ public class ParkingService {
 	 * .build(); parkingMap.put(id, parking2); }
 	 */
 
+	@Transactional(readOnly =true, propagation = Propagation.SUPPORTS)
 	public List<Parking> findAll() {
 		return repository.findAll();
 	}
-
+	@Transactional(readOnly =true)
 	public Parking findById(String id) {
 		// Returns a optional
 		return repository.findById(id).orElseThrow(() -> new ParkingNotFoundException(id));
@@ -42,7 +44,8 @@ public class ParkingService {
 	private static String getUUID() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
-
+	
+	@Transactional
 	public Parking create(Parking parkingCreate) {
 		parkingCreate.setId(getUUID());
 		parkingCreate.setEntryData(LocalDateTime.now());
@@ -50,12 +53,14 @@ public class ParkingService {
 		return parkingCreate;
 	}
 
+	@Transactional
 	public void delete(String id) {
 		findById(id);
 		repository.deleteById(id);
 
 	}
-
+	
+	@Transactional
 	public Parking update(String id, Parking parkingCreate) {
 		Parking parking = findById(id);
 		if (parkingCreate.getColor() != null)
@@ -70,6 +75,7 @@ public class ParkingService {
 		return parking;
 	}
 
+	@Transactional
 	public Parking checkOut(String id) {
 		Parking parking = findById(id);
 		parking.setExitDate(LocalDateTime.now());

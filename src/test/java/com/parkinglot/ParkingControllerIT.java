@@ -12,9 +12,10 @@ import com.parkinglot.controller.dto.ParkingCreateDTO;
 
 import io.restassured.RestAssured;
 
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ParkingControllerIT {
-
+	//Uses map instead of database
 	@LocalServerPort
 	private int randomPort;
 
