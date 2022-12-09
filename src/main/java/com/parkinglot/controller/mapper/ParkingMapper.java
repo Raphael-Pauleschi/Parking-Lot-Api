@@ -17,7 +17,7 @@ import com.parkinglot.model.Parking;
 public class ParkingMapper {
 	
 	public static final ModelMapper MODEL_MAPPER = new ModelMapper();
-	/*
+	/*Map conversion for build pattern
 	public ParkingMapper() {
 		MODEL_MAPPER.getConfiguration()
         .setMatchingStrategy(MatchingStrategies.STRICT)
