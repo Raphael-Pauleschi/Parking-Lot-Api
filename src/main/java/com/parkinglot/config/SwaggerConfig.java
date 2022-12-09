@@ -1,29 +1,36 @@
 package com.parkinglot.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import java.util.Arrays;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.ApiKey;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /*
  * For some reason swagger doesn't work in my device
  */
+/*
 @Component
 @EnableSwagger2
+@EnableWebMvc
+*/
 public class SwaggerConfig {
+/*
 	@Bean
 	public Docket getDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.parkinglot"))
+				.apis(RequestHandlerSelectors.basePackage("com.parkinglot.controller"))
 				.build()
-				.apiInfo(metaData());
+				.apiInfo(metaData())
+				.securitySchemes(Arrays.asList(apiKey()));
 	}
 	
 	private ApiInfo metaData() {
@@ -36,4 +43,8 @@ public class SwaggerConfig {
 				.build();
 	}
 	
+	 private ApiKey apiKey() {
+        return new ApiKey("Authorization", "Authorization", "header");
+    }
+	*/
 }

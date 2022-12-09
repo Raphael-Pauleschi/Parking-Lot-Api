@@ -2,6 +2,8 @@ package com.parkinglot.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +11,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@Entity
 public class Parking {
+	@Id
 	private String id;
 	private String license;
 	private String model;
