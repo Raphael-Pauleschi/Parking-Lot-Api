@@ -71,9 +71,13 @@ public class ParkingService {
 	}
 
 	public Parking checkOut(String id) {
-		// get the parking and update its exitDate
-
-		return null;
+		Parking parking = findById(id);
+		parking.setExitDate(LocalDateTime.now());
+		
+		//Calling checkout business rules
+		parking.setBill(ParkingCheckOut.getBill(parking));
+		repository.save(parking);
+		return parking;
 	}
 
 }
