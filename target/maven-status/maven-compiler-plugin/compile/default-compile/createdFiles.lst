@@ -1,14 +1,13 @@
-com\parkinglot\controller\dto\ParkingCreateDTO$ParkingCreateDTOBuilder.class
 com\parkinglot\exception\ParkingNotFoundException.class
 com\parkinglot\config\LombokBuilderNameTransformer.class
 com\parkinglot\controller\HelloController.class
 com\parkinglot\controller\mapper\ParkingMapper.class
 com\parkinglot\ParkingLotApiApplication.class
 com\parkinglot\config\LombokBuilderNamingConvention.class
-com\parkinglot\model\Parking$ParkingBuilder.class
 com\parkinglot\controller\dto\ParkingCreateDTO.class
+com\parkinglot\repository\ParkingRepository.class
 com\parkinglot\model\Parking.class
-com\parkinglot\controller\dto\ParkingDTO$ParkingDTOBuilder.class
+com\parkinglot\service\ParkingCheckOut.class
 com\parkinglot\controller\dto\ParkingDTO.class
 com\parkinglot\service\ParkingService.class
 com\parkinglot\config\SwaggerConfig.class

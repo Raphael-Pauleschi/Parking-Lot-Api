@@ -14,7 +14,7 @@ import io.restassured.RestAssured;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ParkingControllerIT {
+class ParkingControllerIT extends AbstractContainerBase{
 	//Uses map instead of database
 	@LocalServerPort
 	private int randomPort;
@@ -43,8 +43,7 @@ class ParkingControllerIT {
 
 	@Test
 	void whenCreateThenCheckIsCreated() {
-		var createDTO = new ParkingCreateDTO("yellow","uno","SLA-2341","ES");
-		
+		var createDTO = new ParkingCreateDTO("SLA-2341","ES","uno","yellow");
 		
 		RestAssured.given()
 		.when()
