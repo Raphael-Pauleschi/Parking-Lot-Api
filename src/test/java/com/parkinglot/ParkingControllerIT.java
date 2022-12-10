@@ -32,6 +32,8 @@ class ParkingControllerIT extends AbstractContainerBase{
 		 */
 
 		RestAssured.given()
+			.auth()
+			.basic("user","456")
 			.when()
 			.get("/cars").then()
 			.statusCode(HttpStatus.OK.value());
