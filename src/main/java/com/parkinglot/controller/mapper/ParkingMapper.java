@@ -7,8 +7,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Component;
 
-import com.parkinglot.config.LombokBuilderNameTransformer;
-import com.parkinglot.config.LombokBuilderNamingConvention;
+import com.parkinglot.config.lombok.LombokBuilderNameTransformer;
+import com.parkinglot.config.lombok.LombokBuilderNamingConvention;
 import com.parkinglot.controller.dto.ParkingCreateDTO;
 import com.parkinglot.controller.dto.ParkingDTO;
 import com.parkinglot.model.Parking;

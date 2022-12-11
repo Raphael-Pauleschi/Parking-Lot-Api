@@ -1,4 +1,4 @@
-package com.parkinglot.config;
+package com.parkinglot.config.lombok;
 
 import org.modelmapper.internal.util.Strings;
 import org.modelmapper.spi.NameTransformer;

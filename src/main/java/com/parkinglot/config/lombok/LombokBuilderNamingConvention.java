@@ -1,4 +1,4 @@
-package com.parkinglot.config;
+package com.parkinglot.config.lombok;
 
 import org.modelmapper.spi.NamingConvention;
 import org.modelmapper.spi.PropertyType;

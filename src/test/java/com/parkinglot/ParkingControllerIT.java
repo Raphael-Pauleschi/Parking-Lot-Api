@@ -48,6 +48,8 @@ class ParkingControllerIT extends AbstractContainerBase{
 		var createDTO = new ParkingCreateDTO("SLA-2341","ES","uno","yellow");
 		
 		RestAssured.given()
+		.auth()
+		.basic("user","456")
 		.when()
 		.contentType(MediaType.APPLICATION_JSON_VALUE)
 		.body(createDTO)

@@ -1,4 +1,4 @@
-package com.parkinglot.config;
+package com.parkinglot.config.swagger;
 
 import java.util.Arrays;
 
