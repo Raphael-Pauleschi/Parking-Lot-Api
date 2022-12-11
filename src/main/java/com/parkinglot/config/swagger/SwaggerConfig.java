@@ -30,8 +30,34 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.basePackage("com.parkinglot.controller"))
 				.build()
 				.apiInfo(metaData())
-				.securitySchemes(Arrays.asList(apiKey()));
+				.securityContexts(Array.asList(actuatorSecurityContext())
+				.securitySchemes(Arrays.asList(basicAuthScheme());
 	}
+	
+	    private SecurityContext actuatorSecurityContext() {
+        return SecurityContext.builder()
+                .securityReferences(Arrays.asList(basicAuthReference()))
+                .build();
+    }
+
+    private SecurityScheme basicAuthScheme() {
+        return new BasicAuth("basicAuth");
+    }
+
+    private SecurityReference basicAuthReference() {
+        return new SecurityReference("basicAuth", new AuthorizationScope[0]);
+    }
+
+    private List<SecurityScheme> basicScheme() {
+        List<SecurityScheme> schemeList = new ArrayList<>();
+        schemeList.add(new BasicAuth("basicAuth"));
+        return schemeList;
+    }
+
+    private ApiKey apiKey() {
+        return new ApiKey("apiKey", "Authorization", "header");
+    }
+	
 	
 	private ApiInfo metaData() {
 		return new ApiInfoBuilder()
@@ -43,8 +69,5 @@ public class SwaggerConfig {
 				.build();
 	}
 	
-	 private ApiKey apiKey() {
-        return new ApiKey("Authorization", "Authorization", "header");
-    }
 	*/
 }
